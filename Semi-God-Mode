@@ -1,0 +1,19 @@
+if hookmetamethod then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))() -- can replaced with any namecall bypasser
+    print("Bypassed Namecall Detection")
+    local old; old = hookmetamethod(game, "__namecall", function(self, ...)
+        local args = {...}
+        local method = getnamecallmethod()
+        if method == "FireServer" and self.Name == "Asynchronous" then
+            if args[1] == "HurtSelf" then
+                args[3] = 0.001 -- dosent fully remove damage
+            elseif args[1] == "CharHit" then
+                args[4] = "Humanoid"
+            end
+            return old(self, unpack(args))
+        end
+        return old(self, ...)
+    end)
+else
+    game:GetService("Players").LocalPlayer:Kick("Exploit not supported!")
+end
