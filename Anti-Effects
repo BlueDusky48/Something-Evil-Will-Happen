@@ -1,0 +1,8 @@
+while true do
+    local args = {
+        "removeServerEffect",
+        "Underwater"
+    }
+    game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Communication"):WaitForChild("Asynchronous"):FireServer(unpack(args))
+    wait(0.01)
+end
