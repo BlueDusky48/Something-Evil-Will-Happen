@@ -1,0 +1,23 @@
+while true do
+local aux = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/ohaux.lua"))()
+
+local scriptPath = game:GetService("ReplicatedStorage").Resources.Client.MovementHandler.Stamina
+local closureName = "DrainStamina"
+local upvalueIndex = 1
+local closureConstants = {
+	[1] = 0,
+	[2] = "DrainRateMulti",
+	[3] = "MaxStamina",
+	[4] = "DestroyDrainer",
+	[5] = "BaseRegen",
+	[6] = "tick"
+}
+
+local closure = aux.searchClosure(scriptPath, closureName, upvalueIndex, closureConstants)
+local value =67676767676767
+--six sevennn :67:
+
+
+
+debug.setupvalue(closure, upvalueIndex, value)
+end
